@@ -1,10 +1,8 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView
-from home.models import *
 from home.forms import get_covid
 
 import requests
-import json
+
 # Create your views here.
 
 def get_covid_data(requests):
