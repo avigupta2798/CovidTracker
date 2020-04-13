@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DigitalOcean Droplets</title>
+    <link crossorigin="anonymous"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css"
+          integrity="sha256-8B1OaG0zT7uYA572S2xOxWACq9NXYPQ+U5kHPV1bJN4="
+          rel="stylesheet"/>
+    <link rel="shortcut icon" type="image/png" href="https://assets.digitalocean.com/logos/favicon.png"/>
+</head>
+<body>
+<nav aria-label="main navigation" class="navbar is-light" role="navigation">
+    <div class="navbar-brand">
+        <div class="navbar-item">
+            <img atl="DigitalOcean" src="https://assets.digitalocean.com/logos/DO_Logo_icon_blue.png"
+                 style="margin-right: 0.5em;">Droplets
+        </div>
+    </div>
+</nav>
+<table class="table is-fullwidth is-striped is-bordered">
+    <thead>
+    <tr>
+        <th>Patient Number</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Nationality</th>
+        <th>Date</th>
+        <th>State</th>
+        <th>City</th>
+        <th>District</th>
+        <th>State Code</th>
+        <th>Current Status</th>
+        <th>Type of Transmission</th>
+        <th>source1</th>
+        <th>source2</th>
+        <th>source3</th>
+        <th>Notes</th>
+        <th>Backup Notes</th>
+        <th>Status Change Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for cov in covid %}
+    <tr>
+        <td>{{ cov.patientnumber }}</td>
+        <td>{{ cov.agebracket }}</td>
+        <td>{{ cov.gender }}</td>
+        <td>{{ cov.nationality }}</td>
+        <td>{{ cov.dateannounced }}</td>
+        <td>{{ cov.detectedstate }}</td>
+        <td>{{ cov.detectedcity }}</td>
+        <td>{{ cov.detecteddistrict }}</td>
+        <td>{{ cov.statecode }}</td>
+        <td>{{ cov.currentstatus }}</td>
+        <td>{{ cov.typeoftransmission }}</td>
+        <td>{{ cov.source1 }}</td>
+        <td>{{ cov.source2 }}</td>
+        <td>{{ cov.source3 }}</td>
+        <td>{{ cov.notes }}</td>
+        <td>{{ cov.backupnotes }}</td>
+        <td>{{ cov.statuschangedate }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>
