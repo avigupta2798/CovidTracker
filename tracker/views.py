@@ -7,4 +7,4 @@ import requests
 
 def track_covid_data(requests):
         track_data_list = track_covid()
-        return render(requests, 'tracker/home.html', {"track":track_data_list})
+        return render(requests, "tracker/tracker.html", {"track":track_data_list})
