@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block body_block %}
+<table class="table is-fullwidth is-striped is-bordered">
+    <caption>Covid-19 India Tracker</caption>
+    <thead>
+    <tr>
+        <th scope="col">STATE/UT</th>
+        <th scope="col">CONFIRMED</th>
+        <th scope="col">ACTIVE</th>
+        <th scope="col">RECOVERED</th>
+        <th scope="col">DECEASED</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for tar in track %}
+    <tr>
+        <td>{{ tar.state }}</td>
+        <td>{{ tar.confirmed }}</td>
+        <td>{{ tar.active }}</td>
+        <td>{{ tar.recovered }}</td>
+        <td>{{ tar.deaths }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
