@@ -26,23 +26,23 @@
     <tbody>
     {% for cov in covid %}
     <tr>
-        <td>{{ cov.patientnumber }}</td>
-        <td>{{ cov.agebracket }}</td>
+        <td>{{ cov.patient_number }}</td>
+        <td>{{ cov.age }}</td>
         <td>{{ cov.gender }}</td>
         <td>{{ cov.nationality }}</td>
-        <td>{{ cov.dateannounced }}</td>
-        <td>{{ cov.detectedstate }}</td>
-        <td>{{ cov.detectedcity }}</td>
-        <td>{{ cov.detecteddistrict }}</td>
+        <td>{{ cov.date_announced }}</td>
+        <td>{{ cov.state }}</td>
+        <td>{{ cov.city }}</td>
+        <td>{{ cov.district }}</td>
         <td>{{ cov.statecode }}</td>
-        <td>{{ cov.currentstatus }}</td>
-        <td>{{ cov.typeoftransmission }}</td>
-        <td>{{ cov.source1 }}</td>
-        <td>{{ cov.source2 }}</td>
-        <td>{{ cov.source3 }}</td>
+        <td>{{ cov.current_status }}</td>
+        <td>{{ cov.type_of_transmission }}</td>
+        <td>{{ cov.source_1 }}</td>
+        <td>{{ cov.source_2 }}</td>
+        <td>{{ cov.source_3 }}</td>
         <td>{{ cov.notes }}</td>
-        <td>{{ cov.backupnotes }}</td>
-        <td>{{ cov.statuschangedate }}</td>
+        <td>{{ cov.backup_notes }}</td>
+        <td>{{ cov.status_change_date }}</td>
     </tr>
     {% endfor %}
     </tbody>
