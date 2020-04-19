@@ -11,24 +11,23 @@ IMPORT_URL = 'https://api.covid19india.org/raw_data.json'
 
 class Command(BaseCommand):
     def import_covid_data(self, covdata):
-            age = covdata.get('agebracket', None)
-            backup_notes = covdata.get('backupnotes', None) 
-            current_status = covdata.get('currentstatus', None)
-            date_announced = covdata.get('dateannounced', None)
-            city = covdata.get('detectedcity', None) 
-            district = covdata.get('detecteddistrict', None)
-            state = covdata.get('detectedstate', None)
-            gender = covdata.get('gender', None)
-            nationality = covdata.get('nationality', None) 
-            notes = covdata.get('notes', None)
-            patient_number = covdata.get('patientnumber', None) 
-            source1 = covdata.get('source1', None)
-            source2 = covdata.get('source2', None) 
-            source3 = covdata.get('source3', None) 
-            statecode = covdata.get('statecode', None)
-            status_change_date = covdata.get('statuschangedate', None) 
-            type_of_transmission = covdata.get('typeoftransmission', None)
-        
+            age = covdata.get('agebracket' )
+            backup_notes = covdata.get('backupnotes' ) 
+            current_status = covdata.get('currentstatus' )
+            date_announced = covdata.get('dateannounced' )
+            city = covdata.get('detectedcity' ) 
+            district = covdata.get('detecteddistrict' )
+            state = covdata.get('detectedstate' )
+            gender = covdata.get('gender' )
+            nationality = covdata.get('nationality' ) 
+            notes = covdata.get('notes' )
+            patient_number = covdata.get('patientnumber' ) 
+            source1 = covdata.get('source1' )
+            source2 = covdata.get('source2' ) 
+            source3 = covdata.get('source3' ) 
+            statecode = covdata.get('statecode' )
+            status_change_date = covdata.get('statuschangedate' ) 
+            type_of_transmission = covdata.get('typeoftransmission' )
             covid_data, created = Covid.objects.get_or_create(
                 patient_number = patient_number,
                 age = age,                     
@@ -65,8 +64,9 @@ class Command(BaseCommand):
         df = pd.DataFrame(covdata)
         df_1=df.to_dict('list')
         try:
-            for i, data_object in df.iterrows():
-                self.import_covid_data(covdata[i])
+            for j, data_object in df.iterrows():
+                    if df_1['dateannounced'][j]!='':
+                        self.import_covid_data(covdata[j])
             print("data stored")
         except Exception as e:
-            print("something wrong")
+            print(e)
