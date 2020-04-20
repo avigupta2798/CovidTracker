@@ -16,51 +16,14 @@ class Command(BaseCommand):
         try:     
             for j, data_object in df.iterrows():
                 if df['patientnumber'][j]<=str(a[j]):
-                    if df_1['dateannounced'][j]!='' and df_1['patientnumber'][j]!='':
-                        age = covdata[j].get('agebracket')
-                        backup_notes = covdata[j].get('backupnotes') 
-                        current_status = covdata[j].get('currentstatus')
-                        date_announced = covdata[j].get('dateannounced')
-                        city = covdata[j].get('detectedcity') 
-                        district = covdata[j].get('detecteddistrict')
-                        state = covdata[j].get('detectedstate')
-                        gender = covdata[j].get('gender')
-                        nationality = covdata[j].get('nationality') 
-                        notes = covdata[j].get('notes')
-                        patient_number = covdata[j].get('patientnumber') 
-                        source1 = covdata[j].get('source1')
-                        source2 = covdata[j].get('source2') 
-                        source3 = covdata[j].get('source3') 
-                        statecode = covdata[j].get('statecode')
-                        status_change_date = covdata[j].get('statuschangedate') 
-                        type_of_transmission = covdata[j].get('typeoftransmission')
-                        covid_data, created = Covid.objects.get_or_create(
-                            patient_number = patient_number,
-                            age = age,                     
-                            backup_notes = backup_notes,
-                            current_status = current_status,
-                            date_announced = date_announced,
-                            city = city,
-                            district = district,
-                            state = state,
-                            gender = gender,
-                            nationality = nationality,
-                            notes = notes,
-                            source1 = source1,
-                            source2 = source2,
-                            source3 = source3,
-                            statecode = statecode,
-                            status_change_date = status_change_date,
-                            type_of_transmission = type_of_transmission
-                        )
-                        if created:
-                            covid_data.save()
+                    continue
         except Exception as e:
             m=j
             for m, data_object in df.iterrows():
-                if (m<j):
+                if (m<=j):
                     continue
                 else:
+                    import pdb; pdb.set_trace()
                     if df_1['dateannounced'][m]!='' and df_1['patientnumber'][m]!='':
                         age = covdata[m].get('agebracket')
                         backup_notes = covdata[m].get('backupnotes') 
