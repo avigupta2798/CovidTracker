@@ -1,6 +1,7 @@
 """
 Import Json data from an api to Database
 """
+
 import requests
 import pandas as pd
 from home.models import Covid
